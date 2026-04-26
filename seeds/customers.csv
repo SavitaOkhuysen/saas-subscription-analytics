@@ -1,0 +1,16 @@
+customer_id,created_at,country,acquisition_channel,plan_type
+1,2023-01-05,US,organic,annual
+2,2023-01-12,US,paid_search,monthly
+3,2023-01-18,CA,organic,annual
+4,2023-02-01,US,referral,monthly
+5,2023-02-14,UK,organic,monthly
+6,2023-02-20,US,paid_search,annual
+7,2023-03-03,US,organic,monthly
+8,2023-03-15,CA,referral,annual
+9,2023-03-22,US,organic,monthly
+10,2023-04-01,US,paid_search,monthly
+11,2023-04-10,UK,organic,annual
+12,2023-04-18,US,referral,monthly
+13,2023-05-02,US,organic,annual
+14,2023-05-20,CA,paid_search,monthly
+15,2023-06-01,US,organic,annual

@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customer records with acquisition and plan details"
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+      - name: country
+        description: "Customer country"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['US', 'CA', 'UK']
+      - name: acquisition_channel
+        description: "How the customer found YNAB"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['organic', 'paid_search', 'referral']
+      - name: plan_type
+        description: "Monthly or annual plan"
+        data_tests:
+          - accepted_values:
+              values: ['monthly', 'annual']
+
+  - name: stg_subscriptions
+    description: "Cleaned subscription records with churn and revenue flags"
+    columns:
+      - name: subscription_id
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to stg_customers"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: status
+        description: "Active or churned"
+        data_tests:
+          - accepted_values:
+              values: ['active', 'churned']
+      - name: monthly_amount
+        description: "Monthly revenue amount"
+        data_tests:
+          - not_null
