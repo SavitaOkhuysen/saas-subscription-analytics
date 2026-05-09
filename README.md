@@ -1,23 +1,6 @@
-# SaaS Subscription Analytics — dbt + DuckDB
+# SaaS Subscription Analytics - dbt + Snowflake
 
-A dbt project modeling subscription analytics for a B2C SaaS business, built to demonstrate modern data stack skills including staging/mart architecture, data quality testing, and auto-generated documentation.
-
----
-
-## Project Structure
-
-```
-models/
-├── staging/
-│   ├── stg_customers.sql        # Cleaned customer records
-│   └── stg_subscriptions.sql   # Cleaned subscription records with churn flags
-└── marts/
-    ├── mrr.sql                  # Monthly Recurring Revenue by month
-    ├── customer_retention.sql   # Customer lifecycle and retention metrics
-    └── acquisition_performance.sql  # Churn and MRR by acquisition channel
-```
-
----
+A dbt project modeling subscription analytics for a B2C SaaS business, built with Snowflake as the data warehouse. Demonstrates modern data stack practices including staging/mart architecture, data quality testing, and auto-generated documentation.
 
 ## Business Questions Answered
 
@@ -26,54 +9,19 @@ models/
 - Are annual vs monthly plan customers retained differently?
 - Which customers are at risk based on tenure and plan type?
 
----
-
 ## Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| dbt Core 1.11 | Model development, testing, documentation |
-| DuckDB | Lightweight local analytical database |
-| SQL | Transformations across all model layers |
-
----
+- dbt Core 1.11 - Model development, testing, documentation
+- Snowflake - Cloud data warehouse
+- SQL - Transformations across all model layers
 
 ## Data Quality Tests
 
-13 tests across 2 staging models covering:
-- Primary key uniqueness and not-null constraints
-- Foreign key relationships between customers and subscriptions
-- Accepted values validation for country, plan type, acquisition channel, and status
-
-All 13 tests pass cleanly.
-
----
-
-## How to Run
-
-```bash
-# Install dependencies
-pip3 install dbt-core dbt-duckdb
-
-# Load seed data
-dbt seed
-
-# Build all models
-dbt run
-
-# Run data quality tests
-dbt test
-
-# Generate and serve documentation
-dbt docs generate
-dbt docs serve
-```
-
----
+13 tests across 2 staging models covering primary key uniqueness, not-null constraints, foreign key relationships, and accepted values validation. All 13 tests pass cleanly.
 
 ## Key Metrics Modeled
 
-- **MRR** — Monthly recurring revenue with active vs churned breakdown
-- **Churn Rate** — Percentage of subscriptions churned per month
-- **Days as Customer** — Tenure for both active and churned customers
-- **Acquisition Performance** — Revenue and churn rate by channel and plan type
+- MRR - Monthly recurring revenue with active vs churned breakdown
+- Churn Rate - Percentage of subscriptions churned per month
+- Days as Customer - Tenure for both active and churned customers
+- Acquisition Performance - Revenue and churn rate by channel and plan type
