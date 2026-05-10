@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: churn_by_contract
+    description: Churn rate, MRR, tenure, and service adoption metrics grouped by contract type
+    columns:
+      - name: contract_type
+        tests:
+          - unique
+          - not_null
+      - name: churn_rate_pct
+        description: Percentage of customers who churned (0-100)
+      - name: total_customers
+        description: Must be greater than zero
+        tests:
+          - not_null
+
+  - name: service_adoption
+    description: Impact of each service on customer churn rate
+    columns:
+      - name: service_name
+        tests:
+          - unique
+          - not_null
+
+  - name: revenue_by_segment
+    description: Revenue and lifetime value metrics by tenure segment and contract type
+    columns:
+      - name: total_customers
+        tests:
+          - not_null
+
+  - name: churn_by_service_depth
+    description: Churn rate by number of services adopted (0-6), showing whether more services correlate with lower churn
+    columns:
+      - name: services_adopted
+        tests:
+          - unique
+          - not_null
+      - name: total_customers
+        tests:
+          - not_null

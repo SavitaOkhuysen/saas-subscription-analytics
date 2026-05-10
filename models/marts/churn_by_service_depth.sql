@@ -2,22 +2,18 @@ with customers as (
     select * from {{ ref('int_customer_enriched') }}
 ),
 
-segments as (
+service_depth as (
     select
-        tenure_segment,
-        contract_type,
+        services_adopted,
         count(customer_id)                       as total_customers,
         count(case when is_churned
             then customer_id end)                as churned_customers,
         {{ churn_rate('is_churned', 'customer_id') }} as churn_rate_pct,
         round(avg(monthly_charges), 2)           as avg_monthly_charges,
-        round(avg(total_charges), 2)             as avg_lifetime_value,
-        round(avg(services_adopted), 1)          as avg_services_adopted,
-        round(sum(case when not is_churned
-            then monthly_charges else 0 end), 2) as segment_mrr
+        round(avg(tenure_months), 1)             as avg_tenure_months
     from customers
-    group by 1, 2
+    group by 1
 )
 
-select * from segments
-order by tenure_segment, churn_rate_pct desc
+select * from service_depth
+order by services_adopted

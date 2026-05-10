@@ -17,5 +17,7 @@ models:
   saas_subscription_analytics:
     staging:
       +materialized: view
+    intermediate:
+      +materialized: view
     marts:
       +materialized: view

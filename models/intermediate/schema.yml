@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: int_customer_enriched
+    description: Customer data enriched with service adoption count, internet category, new customer flag, and average monthly spend. Used as the foundation for all mart models.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: services_adopted
+        description: Count of optional services the customer subscribes to (0-6)
+      - name: is_new_customer
+        description: True if customer tenure is 6 months or less
