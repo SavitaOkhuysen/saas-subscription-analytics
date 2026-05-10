@@ -4,7 +4,7 @@ A dbt project analyzing 7,043 real customer records from a subscription service,
 
 ## Dataset
 
-IBM Telco Customer Churn dataset (7,043 customers) with contract types, service subscriptions, tenure, charges, and churn status. Source: [IBM Telco Customer Churn Dataset](https://github.com/IBM/telco-customer-churn-on-icp4d/blob/master/data/Telco-Customer-Churn.csv) (public domain, via Kaggle)
+IBM Telco Customer Churn dataset (7,043 customers) with contract types, service subscriptions, tenure, charges, and churn status. Source: https://github.com/IBM/telco-customer-churn-on-icp4d/blob/master/data/Telco-Customer-Churn.csv
 
 ## Project Structure
 
