@@ -74,10 +74,6 @@ This prevents inconsistent churn definitions across models. Define the logic onc
     dbt docs generate
     dbt docs serve
 
-## Companion Project
-
-For the analytical layer (visualizations, findings, and business recommendations) built on this same dataset, see: github.com/SavitaOkhuysen/saas-product-analytics
-
 ## Companion Analysis
 
 The analytical layer for this dataset — including an interactive retention dashboard, churn segmentation, and prioritized business recommendations — is in the [Subscription Churn Analysis](https://github.com/SavitaOkhuysen/subscription-churn-analysis) project. Explore the live dashboard at [savitaokhuysen.github.io/subscription-churn-analysis](https://savitaokhuysen.github.io/subscription-churn-analysis/). Together, these two repos demonstrate the full data lifecycle: infrastructure (this project) through insight delivery (the analysis project).
